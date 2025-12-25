@@ -4,13 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakim Abdul Razzaq - Master Herbalist | 40+ Years Experience</title>
+    <title>Al Chishti Dawakhana | Hakim Abdul Razzaq - Master Herbalist</title>
 
     <!-- Meta Tags -->
     <meta name="description"
-        content="Hakim Abdul Razzaq - Master Herbalist with 40+ years of experience. Authentic Unani & Ayurvedic medicines for complete wellness.">
+        content="Al Chishti Dawakhana - Hakim Abdul Razzaq, Master Herbalist with 40+ years of experience. Authentic Unani & Ayurvedic medicines for complete wellness.">
     <meta name="keywords"
         content="herbal medicine, hakim, unani, ayurvedic, natural healing, herbalist, traditional medicine">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Al Chishti Dawakhana | Hakim Abdul Razzaq - Master Herbalist">
+    <meta property="og:description"
+        content="Authentic Unani & Ayurvedic medicines by Hakim Abdul Razzaq, 40+ years of expertise.">
+    <meta property="og:image" content="logo.png"> <!-- Logo for sharing -->
+    <meta property="og:url" content="https://al-chishti-dawakhana.vercel.app/"> <!-- Replace with your live URL -->
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Al Chishti Dawakhana | Hakim Abdul Razzaq - Master Herbalist">
+    <meta name="twitter:description"
+        content="Authentic Unani & Ayurvedic medicines by Hakim Abdul Razzaq, 40+ years of expertise.">
+    <meta name="twitter:image" content="logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
 
     <!-- Fonts -->
     <link
@@ -28,8 +46,9 @@
 
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
- <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
     <!-- Loading Screen -->
@@ -53,16 +72,19 @@
     </a>
 
     <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <i class="fas fa-leaf"></i>
-                <span>Al Chishti Dawakhana</span>
-            </a>
+   <nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <!-- Logo & Clinic Name -->
+        <a href="#" class="nav-logo">
+            <!-- Replaced FontAwesome leaf with actual logo -->
+            <img src="logo.png" alt="Al Chishti Dawakhana Logo" class="nav-logo-img">
+            <span>Al Chishti Dawakhana</span>
+        </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
+        <!-- Mobile menu button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
 
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
