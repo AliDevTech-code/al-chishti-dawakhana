@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakim Abdul Razzaq - Master Herbalist | 40+ Years Experience</title>
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Hakim Abdul Razzaq - Master Herbalist with 40+ years of experience. Authentic Unani & Ayurvedic medicines for complete wellness.">
+    <meta name="keywords"
+        content="herbal medicine, hakim, unani, ayurvedic, natural healing, herbalist, traditional medicine">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- GlideJS (Carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css">
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <i class="fas fa-leaf"></i>
+            <span>Al Chishti Dawakhana</span>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Scroll to Top -->
+    <a href="#" class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <i class="fas fa-leaf"></i>
+                <span>Al Chishti Dawakhana</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#medicines" class="nav-link">Medicines</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="hero-title">
+                    Natural Healing With <span class="highlight">40+ Years</span> of Wisdom
+                    <div style="font-size: 2rem; color: var(--gold); margin-top: 15px;">
+                        Al Chishti Dawakhana
+                    </div>
+                </h1>
+                <p class="hero-description">
+                    Master Herbalist <strong>Hakim Abdul Razzaq</strong> combines ancient <strong>Unani</strong> wisdom
+                    with modern understanding to provide authentic herbal remedies for complete wellness.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#medicines" class="btn btn-primary">
+                        <i class="fas fa-capsules"></i> Explore Medicines
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-calendar-check"></i> Visit Our Clinic
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="stat-number" data-count="5000">0</span>
+                        <span class="stat-label">Patients Healed</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="stat-number" data-count="40">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <span class="stat-number" data-count="100">0</span>
+                        <span class="stat-label">% Natural</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- About Section -->
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image" data-aos="fade-right" data-aos-duration="1000">
+                <div class="image-frame">
+                    <img src="hakeem-a-r.png" alt="Hakim Abdul Razzaq">
+                </div>
+                <div class="experience-badge">
+                    <span>40+</span>
+                    <span>Years</span>
+                </div>
+            </div>
+
+            <div class="about-content" data-aos="fade-left" data-aos-duration="1000">
+                <h2 style="color: var(--primary);">Hakim Abdul Razzaq</h2>
+                <p class="section-subtitle" style="color: var(--text-light);">Master Herbalist & Traditional Medicine Expert</p>
+                <div style="margin-top: 10px;">
+                    <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text);">
+                        With over four decades of dedicated practice in Unani and Ayurvedic medicine,
+                        <hr style="border: none; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 15px auto; width: 50%;">
+                        <b id="typingName" style="
+                            display: block; 
+                            text-align: center; 
+                            color: var(--gold-dark); 
+                            font-size: 1.6rem; 
+                            font-family: 'Playfair Display', serif; 
+                            margin: 15px 0; 
+                            padding: 12px 25px; 
+                            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(26, 71, 42, 0.1)); 
+                            border-radius: var(--radius-md); 
+                            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); 
+                            animation: nameGlow 2s infinite alternate; 
+                            border: 1px solid rgba(212, 175, 55, 0.2);
+                            box-shadow: var(--shadow-sm);
+                            letter-spacing: 1px;
+                        ">Hakim Abdul Razzaq</b>
+                        <hr style="border: none; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 15px auto; width: 50%;">
+                        has established himself as a beacon of traditional healing.
+                        His expertise spans generations of knowledge, meticulously preserved and enhanced
+                        through modern understanding.
+                        Each herbal formulation is carefully crafted using time-tested recipes,
+                        combining the purest natural ingredients to create remedies that work
+                        in harmony with the body's natural healing processes.
+                    </p>
+                </div>
+
+                <style>
+                    @keyframes nameGlow {
+                        0% {
+                            text-shadow: 
+                                0 0 5px rgba(212, 175, 55, 0.4),
+                                0 0 10px rgba(212, 175, 55, 0.2);
+                            box-shadow: 
+                                0 0 10px rgba(212, 175, 55, 0.2),
+                                var(--shadow-sm);
+                        }
+                        100% {
+                            text-shadow: 
+                                0 0 10px rgba(212, 175, 55, 0.6),
+                                0 0 20px rgba(212, 175, 55, 0.3);
+                            box-shadow: 
+                                0 0 15px rgba(212, 175, 55, 0.3),
+                                var(--shadow-md);
+                        }
+                    }
+
+                    /* Typing cursor style */
+                    .typing-cursor {
+                        display: inline-block;
+                        width: 3px;
+                        height: 1.2em;
+                        background-color: var(--gold);
+                        margin-left: 5px;
+                        margin-bottom: -3px;
+                        animation: blink 1s infinite;
+                        vertical-align: middle;
+                        border-radius: 2px;
+                    }
+
+                    @keyframes blink {
+                        0%, 100% { opacity: 1; }
+                        50% { opacity: 0.3; }
+                    }
+                </style>
+
+                <div class="specialization-grid">
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-heartbeat" style="color: var(--primary);"></i>
+                        <span>Cardiac Health</span>
+                    </div>
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-lungs" style="color: var(--primary);"></i>
+                        <span>Respiratory Care</span>
+                    </div>
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-brain" style="color: var(--primary);"></i>
+                        <span>Neurological Issues</span>
+                    </div>
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-bone" style="color: var(--primary);"></i>
+                        <span>Joint & Bone Health</span>
+                    </div>
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-allergies" style="color: var(--primary);"></i>
+                        <span>Skin Diseases</span>
+                    </div>
+                    <div class="specialty-item" style="color: var(--text);">
+                        <i class="fas fa-stomach" style="color: var(--primary);"></i>
+                        <span>Digestive Disorders</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Medicines Section -->
+    <section class="medicines-section" id="medicines">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Premium Herbal Formulations</h2>
+                <p class="section-subtitle">Carefully crafted remedies using authentic ingredients and traditional
+                    methods</p>
+            </div>
+
+            <!-- ✅ SIMPLE GRID INSTEAD OF CAROUSEL -->
+            <div class="medicines-grid" id="medicinesGrid">
+                <!-- Medicines will be loaded here -->
+                <div style="text-align: center; padding: 50px; color: var(--text-light);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 48px; margin-bottom: 20px;"></i>
+                    <p>Loading premium herbal medicines...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Patient Success Stories</h2>
+                <p class="section-subtitle">Real people, real results with Hakim's herbal treatments</p>
+            </div>
+
+            <div class="glide" id="testimonialsCarousel">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left quote-icon"></i>
+                                    <p class="testimonial-text">
+                                        "After 10 years of struggling with arthritis and trying every modern treatment,
+                                        Hakim Sahab's herbal formulation gave me permanent relief. I can now walk
+                                        without pain
+                                        for the first time in a decade!"
+                                    </p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Ahmed Raza</h4>
+                                        <p>Lahore • Arthritis Patient</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left quote-icon"></i>
+                                    <p class="testimonial-text">
+                                        "The digestive tonic completely transformed my health. After years of acidity
+                                        and
+                                        indigestion problems, I finally found a natural solution that actually works.
+                                        No side effects, just pure healing."
+                                    </p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Fatima Khan</h4>
+                                        <p>Karachi • Digestive Issues</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left quote-icon"></i>
+                                    <p class="testimonial-text">
+                                        "My 5-year battle with eczema ended with Hakim Sahab's herbal ointment.
+                                        When dermatologists gave up, traditional medicine provided the cure.
+                                        My skin is completely clear now!"
+                                    </p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Usman Ali</h4>
+                                        <p>Islamabad • Skin Disease</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<" style="left: -20px;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">" style="right: -20px;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Clinic Locations & Timings</h2>
+                <p class="section-subtitle">Visit us for in-person consultation</p>
+            </div>
+
+            <div class="clinics-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                <!-- Pano Aqil Clinic -->
+                <div class="clinic-card"
+                    style="background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);"
+                    data-aos="fade-up">
+                    <div class="clinic-image" style="height: 200px; overflow: hidden;">
+                        <img src="/pano-aqil.png" alt="Pano Aqil Clinic"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="clinic-content" style="padding: 25px;">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">Pano Aqil Clinic</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt"></i> Main Bazaar, Pano Aqil
+                        </p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                            <div>
+                                <p><strong><i class="fas fa-user-md"></i> Doctor:</strong><br>Hakim Abdul Razzaq</p>
+                                <p><strong><i class="fas fa-phone"></i> Phone:</strong><br>+92 301 340 4512</p>
+                                <p><strong><i class="fas fa-clock"></i> Timings:</strong><br>9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ghotki Clinic -->
+                <div class="clinic-card"
+                    style="background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="clinic-image" style="height: 200px; overflow: hidden;">
+                        <img src="/Ghotki.png" alt="Ghotki Clinic"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="clinic-content" style="padding: 25px;">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">Ghotki Clinic</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt"></i> Railway Road, Ghotki
+                        </p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                            <div>
+                                <p><strong><i class="fas fa-user-md"></i> Doctor:</strong><br>Hakim Abdul Razzaq</p>
+                                <p><strong><i class="fas fa-phone"></i> Phone:</strong><br>+92 301 340 4512</p>
+                                <p><strong><i class="fas fa-clock"></i> Timings:</strong><br>9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adalpure Clinic -->
+                <div class="clinic-card"
+                    style="background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="clinic-image" style="height: 200px; overflow: hidden;">
+                        <img src="/Adalpure.png" alt="Adalpure Clinic"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="clinic-content" style="padding: 25px;">
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">Adalpure Clinic</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">
+                            <i class="fas fa-map-marker-alt"></i> City Center, Adalpure
+                        </p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                            <div>
+                                <p><strong><i class="fas fa-user-md"></i> Doctor:</strong><br>Hakim Abdul Razzaq</p>
+                                <p><strong><i class="fas fa-phone"></i> Phone:</strong><br>+92 301 340 4512</p>
+                                <p><strong><i class="fas fa-clock"></i> Timings:</strong><br>9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp Button -->
+            <!-- WhatsApp Button -->
+            <div style="margin-top: 50px; text-align: center;">
+                <div
+                    style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); padding: 30px; border-radius: var(--radius-lg); max-width: 500px; margin: 0 auto;">
+                    <h3 style="color: var(--primary-dark); margin-bottom: 15px;"><i class="fab fa-whatsapp"></i> For
+                        Appointments & Orders</h3>
+                    <p style="color: var(--primary-dark); margin-bottom: 20px;">Direct WhatsApp contact</p>
+                    <button onclick="openWhatsAppOrder()" class="btn"
+                        style="background: var(--primary-dark); color: white; width: 100%;">
+                        <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <!-- Footer -->
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Al Chishti Dawakhana</span>
+                    </a>
+                    <p class="footer-description">
+                        Providing authentic herbal medicine since 1980. Combining ancient wisdom
+                        with compassionate care for holistic healing.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/923013404512" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Hakim</a></li>
+                        <li><a href="#medicines"><i class="fas fa-chevron-right"></i> Medicines</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Main Bazaar, Pano Aqil, Sindh</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Railway Road, Ghotki, Sindh</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>City Center, Adalpure, Sindh</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+92 301 340 4512</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sat: 9:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div style="margin-top: 20px;">
+                    <h4 style="color: rgba(255,255,255,0.9); margin-bottom: 15px; font-size: 1rem;">
+                        <i class="fas fa-shield-alt"></i> Certified Herbalist
+                    </h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        Registered with Pakistan Herbal Medicine Board<br>
+                        License No: PHMB-8456-2023
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hakim Abdul Razzaq Herbal Medicine. All rights reserved.</p>
+            <p style="margin-top: 10px;">Traditional Healing • Modern Care • Lasting Results</p>
+        </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="order-modal-content">
+            <button class="order-modal-close" onclick="closeModal()">&times;</button>
+            <h3 style="color: var(--primary); margin-bottom: 20px;">Order Confirmation</h3>
+            <p id="modalMessage" style="margin-bottom: 30px; line-height: 1.6;"></p>
+            <button onclick="closeModal()" class="btn btn-primary" style="width: 100%;">OK</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

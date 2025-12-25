@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Hakim Abdul Razzaq</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+   <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-user-md"></i>
+                    <h1>Hakim Admin</h1>
+                </div>
+                <p class="login-subtitle">Herbal Medicine Management System</p>
+                <div class="hakim-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>Secure Admin Access</span>
+                </div>
+            </div>
+            
+            <div id="loginAlert" class="alert"></div>
+            <div id="loginLoading" class="loading">
+                <i class="fas fa-spinner"></i> Authenticating...
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input type="email" id="loginEmail" class="form-input" 
+                           placeholder="admin@hakim.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" id="loginPassword" class="form-input" 
+                           placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Sign In to Dashboard
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p><i class="fas fa-shield-alt"></i> Secured by Supabase Authentication</p>
+                <p style="margin-top: 8px;">&copy; 2024 Hakim Abdul Razzaq - Herbal Medicine</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Hakim Admin</span>
+                </a>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="user-details">
+                        <h4 id="adminName">Hakim Abdul Razzaq</h4>
+                        <p id="adminEmail">admin@hakim.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link active" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#medicines" class="nav-link" onclick="showSection('medicines')">
+                        <i class="fas fa-capsules"></i>
+                        <span>Medicines</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#orders" class="nav-link" onclick="showSection('orders')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#add-medicine" class="nav-link" onclick="showSection('add-medicine')">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add Medicine</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link" onclick="showSection('profile')">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <button class="btn btn-danger" onclick="logout()" style="width: 100%;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="main-header">
+                <div>
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" id="pageTitle">Dashboard Overview</h1>
+                </div>
+                <div class="header-actions">
+                    <span class="current-date" id="currentDate"></span>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon total">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="pendingOrders">0</h3>
+                            <p>Pending Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon completed">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="completedOrders">0</h3>
+                            <p>Completed Orders</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon medicines">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalMedicines">0</h3>
+                            <p>Total Medicines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">Recent Orders</h2>
+                    <button class="btn btn-primary btn-small" onclick="showSection('orders')">
+                        <i class="fas fa-eye"></i> View All Orders
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Medicine</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <tr>
+                                <td colspan="6" class="empty-state">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading orders...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Medicines Section -->
+            <div id="medicines" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Manage Medicines</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-primary btn-small" onclick="showSection('add-medicine')">
+                            <i class="fas fa-plus"></i> Add New Medicine
+                        </button>
+                        <button class="btn btn-secondary btn-small" onclick="loadMedicines()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="medicineAlert" class="alert" style="display: none;"></div>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="medicinesTable">
+                            <tr>
+                                <td colspan="5" class="empty-state">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading medicines...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">All Orders</h2>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <select id="statusFilter" class="form-input" style="width: 150px;" onchange="loadOrders()">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button class="btn btn-secondary btn-small" onclick="loadOrders()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>Medicine</th>
+                                <th>Qty</th>
+                                <th>Amount</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable">
+                            <tr>
+                                <td colspan="10" class="empty-state">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading orders...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Medicine Section -->
+            <div id="add-medicine" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Add New Medicine</h2>
+                    <button class="btn btn-secondary btn-small" onclick="showSection('medicines')">
+                        <i class="fas fa-arrow-left"></i> Back to Medicines
+                    </button>
+                </div>
+                
+                <div id="addMedicineAlert" class="alert" style="display: none;"></div>
+                
+                <form id="addMedicineForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="medicineName" class="form-label">Medicine Name *</label>
+                            <input type="text" id="medicineName" class="form-input" 
+                                   placeholder="Enter medicine name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="medicinePrice" class="form-label">Price (Rs.) *</label>
+                            <input type="number" id="medicinePrice" class="form-input" 
+                                   placeholder="0.00" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="medicineDescription" class="form-label">Description</label>
+                        <textarea id="medicineDescription" class="form-input" 
+                                  placeholder="Enter medicine description..." rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Medicine Image</label>
+                        <div class="upload-area" onclick="document.getElementById('medicineImage').click()" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload image</p>
+                            <span>JPG, PNG (Max 2MB)</span>
+                        </div>
+                        <input type="file" id="medicineImage" accept="image/*" 
+                               style="display: none;" onchange="previewImage(event)">
+                        
+                        <div id="imagePreview" style="display: none; margin-top: 15px;">
+                            <img id="previewImg" class="image-preview" src="" alt="Preview">
+                            <button type="button" class="btn btn-danger btn-small" onclick="removeImage()">
+                                <i class="fas fa-trash"></i> Remove Image
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Save Medicine
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="resetMedicineForm()">
+                            <i class="fas fa-redo"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Admin Profile</h2>
+                </div>
+                
+                <div style="max-width: 500px;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" value="Hakim Abdul Razzaq" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="profileEmail" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Admin Since</label>
+                        <input type="text" class="form-input" id="adminSince" readonly>
+                    </div>
+                    
+                    <div style="background: var(--light-gray); padding: 20px; border-radius: var(--radius-sm); margin-top: 20px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">
+                            <i class="fas fa-info-circle"></i> System Information
+                        </h4>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 5px;">
+                            Total Medicines: <span id="profileMedicines">0</span>
+                        </p>
+                        <p style="color: var(--text-light); font-size: 14px; margin-bottom: 5px;">
+                            Total Orders: <span id="profileOrders">0</span>
+                        </p>
+                        <p style="color: var(--text-light); font-size: 14px;">
+                            Last Login: <span id="lastLogin">Just now</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Order Modal -->
+    <div class="modal-overlay" id="editOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Update Order Status</h3>
+                <button class="modal-close" onclick="closeEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Order ID</label>
+                    <input type="text" id="editOrderId" class="form-input" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Customer Name</label>
+                    <input type="text" id="editCustomerName" class="form-input" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Medicine</label>
+                    <input type="text" id="editMedicineName" class="form-input" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Order Status</label>
+                    <select id="orderStatus" class="form-input">
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Admin Notes</label>
+                    <textarea id="adminNotes" class="form-input" rows="3" 
+                              placeholder="Add any notes here..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="updateOrderStatus()">
+                    <i class="fas fa-save"></i> Update Status
+                </button>
+                <button class="btn btn-secondary" onclick="closeEditModal()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+   <script src="admin-script.js"></script>
+</body>
+</html>
