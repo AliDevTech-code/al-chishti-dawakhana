@@ -1415,7 +1415,7 @@ body {
 }
 
 .loading-logo-text {
-    font-size: 1.2rem;      /* Adjust font size */
+    font-size: 1.1rem;      /* Adjust font size */
     font-weight: 600;
     text-align: center;
 }
@@ -1430,7 +1430,7 @@ body {
         padding: 1rem;
         width: auto; /* auto width instead of 100% */
         position: absolute;
-        top: 60px; /* below navbar */
+        top: 50px; /* below navbar */
         right: 1rem;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         z-index: 999;
@@ -1444,5 +1444,6 @@ body {
         position: relative; /* relative to place menu absolute inside */
     }
 }
+
 
 
