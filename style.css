@@ -1385,3 +1385,17 @@
 body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+.nav-logo-img {
+    height: 45px;      /* Adjust as needed */
+    width: 50px;       /* Keep square for circle logo */
+    object-fit: cover; /* Ensure image covers container */
+    border-radius: 50%; /* Optional: make logo fully circular */
+    margin-right: 5px; /* Space between logo & text */
+    vertical-align: middle;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
