@@ -1399,3 +1399,23 @@ body {
     text-decoration: none;
     color: inherit;
 }
+.loading-logo {
+    display: flex;
+    flex-direction: column; /* vertical stack */
+    align-items: center;    /* center horizontally */
+    justify-content: center;
+    gap: 10px;              /* space between logo and text */
+}
+
+.loading-logo-img {
+    height: 80px;           /* Adjust size as needed */
+    width: 80px;
+    object-fit: cover;
+    border-radius: 50%;     /* circular logo */
+}
+
+.loading-logo-text {
+    font-size: 1.2rem;      /* Adjust font size */
+    font-weight: 600;
+    text-align: center;
+}
