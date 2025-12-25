@@ -1432,6 +1432,7 @@ body {
         position: absolute;
         top: 50px; /* below navbar */
         right: 1rem;
+        left: auto;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         z-index: 999;
     }
@@ -1444,6 +1445,7 @@ body {
         position: relative; /* relative to place menu absolute inside */
     }
 }
+
 
 
 
