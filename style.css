@@ -1425,7 +1425,7 @@ body {
         display: none;
         flex-direction: column;
         gap: 1rem;
-        background: var(--bg-primary);
+        background: green;
         border-radius: 8px;
         padding: 1rem;
         width: auto; /* auto width instead of 100% */
@@ -1444,4 +1444,5 @@ body {
         position: relative; /* relative to place menu absolute inside */
     }
 }
+
 
